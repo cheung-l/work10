@@ -1,0 +1,24 @@
+package text1;
+
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Scanner_PrintWriter {
+    public static void main(String[] args) throws FileNotFoundException {
+        java.io.File file = new java.io.File("src/text1/input.txt");
+        java.io.File file1 = new java.io.File("src/text1/output.txt")；
+        try(java.io.PrintWriter output = new java.io.PrintWriter(file)){
+            output.println("Hello");
+        }
+        Scanner input = new Scanner(file);
+        try (java.io.PrintWriter output1 = new java.io.PrintWriter(file1);){
+            while(input.hasNext()){
+                String str = input.nextLine();
+                output1.println(str);
+                System.out.println(str);
+            }
+        }
+
+        input.close();
+    }
+}
